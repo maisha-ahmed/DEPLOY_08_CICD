@@ -16,7 +16,7 @@ pipeline {
     }
     stage ('Test') {
       agent {
-        label 'agent2'
+        label 'ubuntu-agent'
       }
       steps {
       sh ''' 
