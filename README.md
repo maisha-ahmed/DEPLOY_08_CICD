@@ -20,5 +20,5 @@ Welcome to deployment 8, it's time to put all the pieces together!! Time to crea
 5. Cypress
 
 
-👉Link to deployment instructions: [here]()  
+👉Link to deployment instructions: [here](https://github.com/kura-labs-org/DEPLOY_08_CICD/blob/main/Deployment%208.pdf)  
 ![image](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0vQbTWDSkdWZYD_g_QVr4x8IbVCdmi-Yv3w&usqp=CAU)
