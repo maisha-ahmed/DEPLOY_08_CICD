@@ -13,7 +13,11 @@ Welcome to deployment 8, it's time to put all the pieces together!! Time to crea
 - [x]Create a logical topology of all the software and components used in this depoloyment
 - [x]Document your process and any issues that you experienced 
 - [x]Reports genertated from the frontend test and the security mustbe added to your repo but encrypted 
-- [x]Create a GitHub repository for your documentation 
+- [x]Create a GitHub repository for your documentation
+- [x]Must use the technoglies below:
+1. Docker
+2. Ansible
+5. Cypress
 
 
 👉Link to deployment instructions: [here]()  
