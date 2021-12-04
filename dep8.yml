@@ -1,0 +1,72 @@
+Resources:
+  SGA:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: "Security group that allows SSH from anywhere and allows access to Jenkins"
+      GroupName: "SGA"
+      SecurityGroupIngress:
+        - IpProtocol: TCP
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: TCP
+          FromPort: 8080
+          ToPort: 8080
+          CidrIp: 0.0.0.0/0
+  SGB:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: "Security group that allows SSH from anywhere and allows access for Cypress testing"
+      GroupName: "SGB"
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 3000
+          ToPort: 3000
+          CidrIp: 0.0.0.0/0
+  SGC:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: "Security group that allows SSH from anywhere"
+      GroupName: "SGC"
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 0.0.0.0/0
+  EC2A:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: ami-0629230e074c580f2
+      InstanceType: t2.micro
+      KeyName: "ANS"
+      SecurityGroupIds:
+        - Ref: SGA
+      Tags:
+        - Key: "Name"
+          Value: "EC2_Controller"
+  EC2B:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: ami-0629230e074c580f2
+      InstanceType: t2.micro
+      KeyName: "ANS"
+      SecurityGroupIds:
+        - Ref: SGB
+      Tags:
+        - Key: "Name"
+          Value: "EC2_Agent"
+  EC2C:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: ami-0629230e074c580f2
+      InstanceType: t2.micro
+      KeyName: "ANS"
+      SecurityGroupIds:
+        - Ref: SGC
+      Tags:
+        - Key: "Name"
+          Value: "EC2_Production"
